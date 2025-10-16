@@ -1,0 +1,22 @@
+# Frameworks d'Agent & LLM
+langchain
+
+langchain-mistralai
+langchain-community
+
+# Base de données
+psycopg2-binary
+sqlalchemy
+
+# Data & Analyse
+pandas
+numpy
+
+# Application Web
+streamlit
+
+# Utilitaires
+python-dotenv
+kaggle         # Pour télécharger le dataset
+plotly
+kaleido        # Pour sauvegarder les graphiques plotly en image
