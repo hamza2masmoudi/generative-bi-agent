@@ -30,21 +30,6 @@ The Generative BI Agent follows a modular architecture, primarily composed of:
 4.  **Data Loader (`src/data_loader/loader.py`)**: A Python script responsible for downloading the Olist dataset from Kaggle, processing CSV files, and loading them into the PostgreSQL database.
 5.  **Docker & Docker Compose**: Used for containerizing the PostgreSQL database and the Streamlit application, ensuring a consistent development and deployment environment.
 
-```mermaid
-graph TD
-    User[User] -->|Interacts via| StreamlitApp[Streamlit App (app.py)]
-    StreamlitApp -->|Sends query to| LangChainAgent[LangChain Agent (src/agent/agent.py)]
-    LangChainAgent -->|Uses| LLM[LLM (Mistral/OpenAI/Anthropic)]
-    LangChainAgent -->|Calls| Tools[Tools (src/agent/tools.py)]
-    Tools -->|Executes SQL| PostgreSQL[PostgreSQL Database]
-    Tools -->|Generates charts| Plotly[Plotly & Kaleido]
-    PostgreSQL -->|Data| Tools
-    Plotly -->|Image files| StreamlitApp
-    LangChainAgent -->|Response & Charts| StreamlitApp
-    DataLoading[Data Loader (src/data_loader/loader.py)] -->|Loads data into| PostgreSQL
-    DockerCompose[docker-compose.yml] -->|Manages| PostgreSQL
-    Dockerfile[Dockerfile] -->|Builds| StreamlitApp
-```
 
 ## Setup & Installation
 
